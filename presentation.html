@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>3D Printing Presentation</title>
+  <link rel="stylesheet" type="text/css" href="presentation.css">
+</head>
+<body>
+  <div class="slide">
+    <img src="images/3d_printing.jpg"/>
+    <h2 class="bottom-right">3D Printing</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/history.jpg"/>
+    <h1 class="center">History</h1>
+  </div>
+
+  <div class="slide">
+    <img src="images/Chuck_Hull.jpg"/>
+    <h2 class="top-right">Chuck Hull</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/reprap.jpg"/>
+    <h2 class="top-left">RepRap</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/comercial.jpg"/>
+    <h2 class="top-right high">Commercial</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/types.jpg"/>
+    <h1 class="center">Printer Types</h1>
+  </div>
+
+  <div class="slide">
+    <img src="images/stereolithography.jpg"/>
+    <h2 class="bottom-left">Stereolithography</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/extrusion_deposition.jpg"/>
+    <h2 class="top-left">Extrusion Deposition</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/sintering.jpg"/>
+    <h2 class="top-right high">Laser Sintering</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/howitworks.jpg"/>
+    <h1 class="center outline">How It Works</h1>
+  </div>
+
+  <div class="slide">
+    <img src="images/modeling.jpg"/>
+    <h2 class="top-left high">Modeling</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/cura.png"/>
+    <h2 class="bottom-right low">Slicing</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/gcode.png"/>
+    <h2 class="bottom-right">G Code</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/extruder-drive.jpg"/>
+    <h2 class="top-left high">Extruder Drive</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/nozzle.jpg"/>
+    <h2 class="bottom-right low">Thermocouple &amp; Nozzle</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/top.jpg"/>
+    <h2 class="top-right high">X &amp; Y axis</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/z-axis.jpg"/>
+    <h2 class="top-right high">z axis</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/arduino.jpg"/>
+    <h2 class="bottom-right outline">Microcontroller</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/getting-started.png"/>
+    <h1 class="center outline">Getting Started</h1>
+  </div>
+
+  <div class="slide">
+    <img src="images/package.jpg"/>
+    <h2 class="bottom-right low inset">Buy a Printer</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/iphone6.jpg"/>
+    <h2 class="bottom-right center inverse">$$$</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/library.jpg"/>
+    <h2 class="top-right">Print Here</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/shapeways.png"/>
+    <h2 class="bottom-right">Or Here</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/thingiverse.png"/>
+  </div>
+
+  <div class="slide">
+    <img src="images/tinkercad.png"/>
+    <h2 class="bottom-left low inverse">Tinkercad</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/sketchup.jpg"/>
+    <h2 class="bottom-right low inverse">Sketchup</h2>
+  </div>
+
+  <div class="slide">
+    <img src="images/bears.png"/>
+    <h1 class="center outline">Thank You</h1>
+  </div>
+
+</body>
+<foot>
+  <script>
+
+    var slideIndex = 0;
+    var subSlideIndex = 0;
+    var subslides;
+
+    function removeClass(el, clss) {
+      var re = new RegExp("^"+clss+"$|^"+clss+"\\s+|\\s+"+clss+"$|\\s+"+clss+"(\\s+)");
+      el.setAttribute( "class", (el.getAttribute('class')||'').replace(re,"$1") )
+    }
+    function addClass(el, clss) {
+      removeClass(el,clss)
+      el.setAttribute( 'class', (el.getAttribute('class') || '') + ' ' + clss )
+    }
+    function hasClass(el, clss) {
+      return !!(el.getAttribute('class')||'').match(new RegExp("(\\s+|^)"+clss+"(\\s+|$)"));
+    }
+
+    if ( location.hash && location.hash.match(/#\d+$/) )
+      slideIndex = +location.hash.match(/#(\d+)$/)[1]
+
+    var slides = document.getElementsByClassName('slide');
+    arrangeSlides( slides, slideIndex, true )
+    subslides = slides[slideIndex].getElementsByClassName('sub-slide');
+    if ( ! subslides.length ) {
+      subslides = null;
+    } else {
+      subSlideIndex = 0;
+      arrangeSlides( subslides, 0 );
+    }
+
+
+    function arrangeSlides( slides, index, autoHeight ) {
+      for (var i=0, slide; slide = slides[i]; i++) {
+        slide.style.width = document.body.offsetWidth + 'px';
+        if ( autoHeight )
+          slide.style.height = document.body.offsetHeight + 'px';
+        if ( i > index )
+          slide.style.left = document.body.offsetWidth + 'px';
+        else if ( i < index )
+          slide.style.left = -slide.offsetWidth + 'px';
+        else {
+          slide.style.left = '0px';
+          slide.focus();
+        }
+      }
+    }
+
+    function transition( oldSlide, newSlide, direction, adjustHeight ) {
+      var windowWidth = document.body.offsetWidth;
+      removeClass( newSlide, 'transition' );
+      newSlide.style.width = document.body.offsetWidth + 'px';
+      if (adjustHeight)
+        newSlide.style.height = document.body.offsetHeight + 'px';
+      newSlide.style.left = direction * windowWidth + 'px';
+      addClass( newSlide, 'transition' );
+      addClass( oldSlide, 'transition' );
+      document.body.scrollLeft = 0;
+
+      setTimeout(function() {
+        newSlide.style.left = '0px';
+        oldSlide.style.left = -direction * oldSlide.offsetWidth + 'px'
+        document.body.scrollLeft = 0;
+      }, 1);
+      return newSlide;
+    }
+
+    function transitionSlide( oldSlide, newSlide, direction ) {
+      var interactive = oldSlide.getElementsByClassName('interactive');
+      for (var i=0, el; el = interactive[i]; i++)
+        preso[el.id].hide();
+
+      interactive = newSlide.getElementsByClassName('interactive');
+      for (var i=0, el; el = interactive[i]; i++)
+        preso[el.id].show();
+
+      subslides = newSlide.getElementsByClassName('sub-slide');
+      if ( ! subslides.length ) {
+        subslides = null;
+      } else {
+        subSlideIndex = ~direction ? 0 : subslides.length - 1;
+        arrangeSlides( subslides, subSlideIndex );
+      }
+
+      return transition(oldSlide, newSlide, direction, true);
+    }
+
+    function next(e) {
+      if ( subslides && subSlideIndex < subslides.length - 1 ) {
+        return transition( subslides[subSlideIndex], subslides[++subSlideIndex], 1 );
+      }
+
+      if ( slideIndex >= slides.length - 1 )
+        return;
+
+      transitionSlide( slides[slideIndex], slides[++slideIndex], 1 );
+      location.hash = slideIndex;
+      return false;
+    }
+
+    function prev(e) {
+      if ( subslides && subSlideIndex > 0 )
+        return transition( subslides[subSlideIndex], subslides[--subSlideIndex], -1 );
+
+      if ( slideIndex < 1 )
+        return;
+      transitionSlide( slides[slideIndex], slides[--slideIndex], -1 );
+      location.hash = slideIndex;
+      return false;
+    }
+
+    document.body.addEventListener( 'keydown', function(e) {
+      if (e.keyCode == 39) {
+        next()
+        return false;
+      } else if (e.keyCode == 37) {
+        prev()
+        return false;
+      }
+    } )
+
+  </script>
+</foot>
+</html>
